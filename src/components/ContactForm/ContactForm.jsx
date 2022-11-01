@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 
 
 export default class ContactForm extends React.Component {
+
     state = {
     name: '',
-    number: ''
+    number: '',
     }
     
     nameInputId = nanoid();
-    numberInputId = nanoid();
-    contactId = nanoid();
+    // numberInputId = nanoid();
+    // contactId = nanoid();
 
     handlerChangeInput(e) {
         const { name, value } = e.currentTarget;
@@ -33,7 +34,7 @@ export default class ContactForm extends React.Component {
         return (
             <div onSubmit={this.handlerSubmit}>
                 <label>
-                    htmlFor={this.nameInputId}
+                    {/* htmlFor={this.nameInputId} */}
                     Name
                     <input
                         type="text"
@@ -42,7 +43,7 @@ export default class ContactForm extends React.Component {
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                         value={this.state.name}
-                        onChange={this.handleChangeInput}
+                        onChange={this.handlerChangeInput}
                         id={this.nameInputId}
                     />
                     <label>
@@ -56,7 +57,7 @@ export default class ContactForm extends React.Component {
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                         value={this.state.number}
-                        onChange={this.handleChangeInput}
+                        onChange={this.handlerChangeInput}
                         id={this.numberInputId}
                     />
                 </label>

@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
-import { nanoid } from "nanoid";
 
-export default function ContactList({ contacts, onClick}) {
+export default function ContactList({ contacts, onClick }) {
     return (
-        <ul className="contact-list">
-      {contacts.map(({ name, number }) => (
-        <li className="contact" key={nanoid()}>
+        <ul>
+         {contacts.map(({ name, number, id }) => (
+        <li  key={id}>
           <a>
             {name}: {number}
           </a>

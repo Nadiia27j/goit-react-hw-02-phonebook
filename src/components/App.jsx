@@ -25,6 +25,8 @@ export class App extends React.Component {
       number: data.number,
     };
 
+    console.log(data);
+
     let contacts = this.state.contacts;
     let arrayName = contacts.map(contact => contact.name);
     arrayName.includes(contact.name)
@@ -45,7 +47,7 @@ export class App extends React.Component {
       contacts: prevState.contacts.filter(contact => contact.name !== name),
     }));
 
-    this.setState({ name: '', number: '' });
+    this.setState({ filter: ''});
   };
 
  
