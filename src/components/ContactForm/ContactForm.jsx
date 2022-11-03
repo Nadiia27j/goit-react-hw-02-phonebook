@@ -2,39 +2,38 @@ import React from "react";
 import { nanoid } from "nanoid";
 import PropTypes from 'prop-types';
 
-
-export default class ContactForm extends React.Component {
-
+class ContactForm extends React.Component {
+    static propTypes = {
+     onSubmit: PropTypes.func.isRequired,
+    };
+    
     state = {
-    name: '',
-    number: '',
+     name: '',
+     number: '',
     }
     
-    nameInputId = nanoid();
-    // numberInputId = nanoid();
-    // contactId = nanoid();
 
-    handlerChangeInput(e) {
+    handleChangeInput = e => {
         const { name, value } = e.currentTarget;
         this.setState({ [name]: value });
+        console.log(value);
     };
 
-    handlerSubmit(e) {
-        e.preventdefault();
+    handleSubmit = e => {
+        e.preventDefault();
 
         this.props.onSubmit(this.state);
         this.reset();
     };
 
-    reset() {
+    reset = () => {
         this.setState({ name: '', number: '' });
     };
 
     render() {
         return (
-            <div onSubmit={this.handlerSubmit}>
+            <form onSubmit={this.handleSubmit}>
                 <label>
-                    {/* htmlFor={this.nameInputId} */}
                     Name
                     <input
                         type="text"
@@ -43,8 +42,7 @@ export default class ContactForm extends React.Component {
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                         value={this.state.name}
-                        onChange={this.handlerChangeInput}
-                        id={this.nameInputId}
+                        onChange={this.handleChangeInput}
                     />
                     <label>
                         
@@ -57,19 +55,16 @@ export default class ContactForm extends React.Component {
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                         value={this.state.number}
-                        onChange={this.handlerChangeInput}
-                        id={this.numberInputId}
+                        onChange={this.handleChangeInput}
                     />
                 </label>
 
                 <button type="submit">Add contact</button>
-            </div>
+            </form>
         );
     }
 }
 
 
-ContactForm.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-};
+export default ContactForm;;
 

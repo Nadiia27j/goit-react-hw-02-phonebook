@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 
 export default function ContactList({ contacts, onClick }) {
     return (
-        <ul>
-         {contacts.map(({ name, number, id }) => (
-        <li  key={id}>
+      <ul>
+        {contacts.map(({ name, number, id }) => (
+        <li key={id}>
           <a>
             {name}: {number}
           </a>
@@ -12,7 +12,7 @@ export default function ContactList({ contacts, onClick }) {
             Delete
           </button>
         </li>
-      ))}
+       ))}
       </ul>
     )
 }

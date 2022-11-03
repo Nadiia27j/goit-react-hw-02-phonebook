@@ -18,36 +18,37 @@ export class App extends React.Component {
     filter: '',
   };
 
-  formSubmitHandler(data) {
+  formSubmitHandler = data => {
     const contact = {
       id: nanoid(),
       name: data.name,
       number: data.number,
     };
 
-    console.log(data);
+    // console.log(data);
 
     let contacts = this.state.contacts;
+
     let arrayName = contacts.map(contact => contact.name);
     arrayName.includes(contact.name)
       ? window.alert(`${contact.name} is already in contacts`)
       : this.setState(({ contacts }) => ({
-      contacts: [contact, ... contacts],
+      contacts: [contact, ...contacts],
     }));
   };
+ 
 
-
-  changeFilter(e) {
+  changeFilter = e => {
     this.setState({ filter: e.currentTarget.value });
   };
 
   
-  handlerRemoveButton(name) {
+  handlerRemoveButton = name => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.name !== name),
     }));
 
-    this.setState({ filter: ''});
+    this.setState({ filter: '' });
   };
 
  
