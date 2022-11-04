@@ -1,12 +1,12 @@
 import { PropTypes } from 'prop-types';
-import { Title } from './Section.styled';
+import { Title, BookSection } from './Section.styled';
 
 export default function Section({ title = '', children }) {
     return (
-        <>
+        <BookSection>
             <Title>{title}</Title>
             {children}
-        </>
+        </BookSection>
     )
 };
 
