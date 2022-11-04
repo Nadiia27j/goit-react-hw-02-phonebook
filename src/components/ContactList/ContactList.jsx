@@ -6,9 +6,9 @@ export default function ContactList({ contacts, onClick }) {
       <List>
         {contacts.map(({ name, number, id }) => (
         <Item key={id}>
-          <a>
+          <span>
             {name}: {number}
-          </a>
+          </span>
           <ButtonDelete type="button" onClick={() => onClick(name)} name={name}>
             Delete
           </ButtonDelete>

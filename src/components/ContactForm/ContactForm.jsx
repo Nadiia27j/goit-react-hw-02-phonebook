@@ -16,7 +16,7 @@ class ContactForm extends React.Component {
     handleChangeInput = e => {
         const { name, value } = e.currentTarget;
         this.setState({ [name]: value });
-        console.log(value);
+        // console.log(value);
     };
 
     handleSubmit = e => {
