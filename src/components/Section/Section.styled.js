@@ -9,6 +9,5 @@ export const Title = styled.h1`
 
 export const BookSection = styled.section`
   width: 350px;
-  margin-bottom: 30px;
   padding: 20px;
 `;
